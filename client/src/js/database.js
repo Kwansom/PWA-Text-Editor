@@ -35,6 +35,7 @@ export const getAllDb = async () => {
     const store = transaction.objectStore("jate");
     const result = await store.getAll();
     console.log("All content retrieved from the database", result);
+    return result
   } catch (error) {
     console.error("Error retreiving content from the database", error);
   }
