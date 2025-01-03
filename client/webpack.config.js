@@ -23,6 +23,7 @@ module.exports = () => {
         title: "Just Another Text Editor", // Title of app
       }),
       new WebpackPwaManifest({
+        fingerprints: false,
         inject: true,
         name: "Just Another Text Editor",
         short_name: "Text Editor",
@@ -41,6 +42,7 @@ module.exports = () => {
       }),
       new InjectManifest({
         swSrc: "./src-sw.js",
+        
         swDest: "src-sw.js",
       }),
     ],

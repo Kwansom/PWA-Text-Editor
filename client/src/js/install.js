@@ -4,6 +4,7 @@ const butInstall = document.getElementById("buttonInstall");
 // TODO: Add an event handler to the `beforeinstallprompt` event
 window.addEventListener("beforeinstallprompt", (event) => {
   event.preventDefault();
+  console.log("test");
   butInstall.style.visibility = "visible";
   //   textHeader.textContent = "Click here to install";
 });
