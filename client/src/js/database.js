@@ -13,13 +13,13 @@ const initdb = async () =>
   });
 
 // TODO: Add logic to a method that accepts some content and adds it to the database
-export const putDb = async (id, content) => {
+export const putDb = async (content) => {
   try {
     console.log("PUT to the database");
     const jateDb = await openDB("jate", 1);
     const transaction = jateDb.transaction("jate", "readwrite");
     const store = transaction.objectStore("jate");
-    const result = await store.put({ id: id, jate: content });
+    const result = await store.put({ id: 1, jate: content });
     console.log("Data saved to the database", result);
   } catch (error) {
     console.error("Error saving data to the database", error);
@@ -27,15 +27,15 @@ export const putDb = async (id, content) => {
 };
 
 // TODO: Add logic for a method that gets all the content from the database
-export const getAllDb = async () => {
+export const getDb = async () => {
   try {
     console.log("GET all from the database");
     const jateDb = await openDB("jate", 1);
     const transaction = jateDb.transaction("jate", "readonly");
     const store = transaction.objectStore("jate");
-    const result = await store.getAll();
+    const result = await store.get(1);
     console.log("All content retrieved from the database", result);
-    return result
+    return result;
   } catch (error) {
     console.error("Error retreiving content from the database", error);
   }
